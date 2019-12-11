@@ -1,0 +1,21 @@
+name: hellodaemon
+version: "1.0"
+summary: Hello Daemon
+description: >
+    Snapped daemon that just logs "hello"
+grade: stable
+confinement: strict
+base: core
+
+apps:
+  hellod:
+    daemon: simple
+    command: hellod
+    restart-condition: on-failure
+    restart-delay: 1s
+
+parts:
+  hellod:
+    plugin: dump
+    source: src
+
